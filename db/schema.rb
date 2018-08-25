@@ -10,6 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180825230642) do
+
+  create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "user_name"
+    t.integer  "user_id"
+    t.integer  "reply_count"
+    t.integer  "retweet_count"
+    t.integer  "like_count"
+    t.boolean  "is_liked",                    default: false, null: false
+    t.text     "body",          limit: 65535
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
 
 end
